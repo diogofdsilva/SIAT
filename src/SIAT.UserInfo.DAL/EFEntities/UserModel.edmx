@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="UserModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="UserModelStoreContainer">
+          <EntitySet Name="User" EntityType="UserModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserFriends" EntityType="UserModel.Store.UserFriends" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="fk_Friend1" Association="UserModel.Store.fk_Friend1">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserFriends" EntitySet="UserFriends" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Friend2" Association="UserModel.Store.fk_Friend2">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserFriends" EntitySet="UserFriends" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="pass" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="facebookId" Type="bigint" />
+          <Property Name="firstName" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="lastName" Type="nvarchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="UserFriends">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="idFriend" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="idFriend" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Friend1">
+          <End Role="User" Type="UserModel.Store.User" Multiplicity="1" />
+          <End Role="UserFriends" Type="UserModel.Store.UserFriends" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserFriends">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Friend2">
+          <End Role="User" Type="UserModel.Store.User" Multiplicity="1" />
+          <End Role="UserFriends" Type="UserModel.Store.UserFriends" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserFriends">
+              <PropertyRef Name="idFriend" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="UserModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="UserModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="User" EntityType="UserModel.User" />
+          <AssociationSet Name="UserFriends" Association="UserModel.UserFriends">
+            <End Role="User" EntitySet="User" />
+            <End Role="User1" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Pass" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="FacebookId" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Friends" Relationship="UserModel.UserFriends" FromRole="User" ToRole="User1" />
+        </EntityType>
+        <Association Name="UserFriends">
+          <End Type="UserModel.User" Role="User" Multiplicity="*" />
+          <End Type="UserModel.User" Role="User1" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="UserModel" />
+        <Alias Key="Target" Value="UserModel.Store" />
+        <EntityContainerMapping CdmEntityContainer="UserModelContainer" StorageEntityContainer="UserModelStoreContainer">
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="UserModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="LastName" ColumnName="lastName" />
+                <ScalarProperty Name="FirstName" ColumnName="firstName" />
+                <ScalarProperty Name="FacebookId" ColumnName="facebookId" />
+                <ScalarProperty Name="Pass" ColumnName="pass" />
+                <ScalarProperty Name="Email" ColumnName="email" />
+                <ScalarProperty Name="Id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="UserFriends" TypeName="UserModel.UserFriends" StoreEntitySet="UserFriends">
+            <EndProperty Name="User1">
+              <ScalarProperty Name="Id" ColumnName="idFriend" />
+            </EndProperty>
+            <EndProperty Name="User">
+              <ScalarProperty Name="Id" ColumnName="id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="UserModel" >
+        <EntityTypeShape EntityType="UserModel.User" Width="1.5" PointX="0.75" PointY="0.75" Height="2.364889322916667" />
+        <AssociationConnector Association="UserModel.UserFriends" >
+          <ConnectorPoint PointX="1.2819230769230767" PointY="3.114889322916667" />
+          <ConnectorPoint PointX="1.2819230769230767" PointY="3.3648893229166674" />
+          <ConnectorPoint PointX="1.7284615384615383" PointY="3.3648893229166674" />
+          <ConnectorPoint PointX="1.7284615384615383" PointY="3.114889322916667" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

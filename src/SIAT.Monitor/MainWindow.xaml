@@ -1,0 +1,80 @@
+﻿<Window x:Class="SIAT.Monitor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SIAT Monitor" Height="414" Width="738" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" Icon="/SIAT.Monitor;component/Images/siatIcon.png">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" />
+            <RowDefinition Height="65" />
+            <RowDefinition Height="111*" />
+        </Grid.RowDefinitions>
+        
+        
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="SIAT" Height="23" Margin="20" Name="siatLaunchButton" VerticalAlignment="Top" Width="75" Click="siatLaunchButton_Click" />
+            <Button Content="OSM" Height="23" Margin="20" Name="osmLaunchButton" VerticalAlignment="Top" Width="75" Click="osmLaunchButton_Click" />
+            <Button Content="User" Height="23" Margin="20" Name="userLaunchButton" VerticalAlignment="Top" Width="75" Click="userLaunchButton_Click" />
+            <Button Content="Worker" Height="23" Margin="20" Name="workerLaunchButton" VerticalAlignment="Top" Width="75" Click="workerLaunchButton_Click" />
+            <Button Content="WP7Notification" Height="23" Margin="20" Name="wp7NotificationLaunchButton" VerticalAlignment="Top" Width="96" Click="wp7NotificationLaunchButton_Click" />
+        </StackPanel>
+
+        <TabControl Grid.Row="2" Name="Tab" >
+
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel Width="100">
+                        <Button 
+                            Background="Red"
+                            Content="X"
+                            Cursor="Hand"
+                            DockPanel.Dock="Right"
+                            Focusable="False"
+                            FontFamily="Courier" 
+                            FontSize="9"
+                            FontWeight="Bold"  
+                            Margin="0,1,0,0"
+                            Padding="0"
+                            VerticalContentAlignment="Bottom"
+                            Width="16" Height="16" 
+                            Click="closeTab"
+                            CommandParameter="{Binding .}"
+                            />
+                        <ContentPresenter 
+                            Content="{Binding Title}" 
+                            VerticalAlignment="Center" 
+                            />
+                    </DockPanel>
+                    <!--<StackPanel>
+                        <TextBlock Text="{Binding Title}" />
+                        <Button Click="closeTab" Command="Close" IsEnabled="True" CommandParameter="{Binding .}"></Button>
+                    </StackPanel>-->
+
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <DockPanel  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                        <DockPanel DockPanel.Dock="Bottom" Height="30" HorizontalAlignment="Stretch" ClipToBounds="True">
+                            <Button DockPanel.Dock="Right" Width="60" CommandParameter="{Binding .}" Click="sendInput">Send</Button>
+                            <TextBox HorizontalAlignment="Stretch"  MinWidth="250" ClipToBounds="True" IsEnabled="True" Visibility="Visible" Text="{Binding Input, Mode=TwoWay}" />
+                        </DockPanel>
+                        
+                        <ScrollViewer CanContentScroll="True">
+                            <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="textBlock" Text="{Binding Output}" TextWrapping="Wrap" ClipToBounds="True" />
+                        </ScrollViewer>
+                    </DockPanel>
+                        
+                    
+                    
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+        <Label Content="SIAT Monitor" Height="45" HorizontalAlignment="Center" Name="label1" VerticalAlignment="Top" FontSize="28" Width="188" FontWeight="Bold" />
+        <Image Height="88" HorizontalAlignment="Left" Margin="12,12,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="89" Source="/SIAT.Monitor;component/Images/siatIcon.png" Grid.RowSpan="2" />
+    </Grid>
+
+
+</Window>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6c6ba3b9-f39c-43ae-9747-838baf266710" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://siat.diogofdsilva.com/Services/WP7/SIATServiceWP7.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SIATServiceWP7.xsd" MetadataType="Schema" ID="de7b5d39-6050-4c8f-99bc-871f46fdece2" SourceId="1" SourceUrl="http://siat.diogofdsilva.com/Services/WP7/SIATServiceWP7.svc?xsd=xsd0" />
+    <MetadataFile FileName="SIATServiceWP71.xsd" MetadataType="Schema" ID="0d21c5a0-cb3c-406d-9647-424bfe94d192" SourceId="1" SourceUrl="http://siat.diogofdsilva.com/Services/WP7/SIATServiceWP7.svc?xsd=xsd1" />
+    <MetadataFile FileName="SIATServiceWP72.xsd" MetadataType="Schema" ID="8f839e34-da25-480e-a649-ab654dc8e911" SourceId="1" SourceUrl="http://siat.diogofdsilva.com/Services/WP7/SIATServiceWP7.svc?xsd=xsd2" />
+    <MetadataFile FileName="SIATServiceWP73.xsd" MetadataType="Schema" ID="ffb012cf-d347-4bc3-9df1-72e36a272214" SourceId="1" SourceUrl="http://siat.diogofdsilva.com/Services/WP7/SIATServiceWP7.svc?xsd=xsd3" />
+    <MetadataFile FileName="SIATServiceWP71.wsdl" MetadataType="Wsdl" ID="95ca643a-a57d-4c61-b671-753138d4a43a" SourceId="1" SourceUrl="http://siat.diogofdsilva.com/Services/WP7/SIATServiceWP7.svc?wsdl" />
+    <MetadataFile FileName="SIATServiceWP74.xsd" MetadataType="Schema" ID="70dca235-f6c9-4069-af9a-67b57d08107b" SourceId="1" SourceUrl="http://siat.diogofdsilva.com/Services/WP7/SIATServiceWP7.svc?xsd=xsd4" />
+    <MetadataFile FileName="SIATServiceWP71.disco" MetadataType="Disco" ID="2a5ce89d-47d8-43e2-8156-c7b2fdc37f10" SourceId="1" SourceUrl="http://siat.diogofdsilva.com/Services/WP7/SIATServiceWP7.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

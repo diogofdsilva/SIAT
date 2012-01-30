@@ -1,0 +1,76 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="SIAT.PhoneApp.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="SIAT" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="Settings" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <StackPanel Grid.Row="1" x:Name="parent">
+
+            <TextBlock Text="Configure the system settings:"                                
+                               Style="{StaticResource PhoneTextTitle2Style}"
+                               TextWrapping="Wrap"/>
+            <StackPanel Margin="40,40,0,0" x:Name="CurrentSettingsPanel">
+
+                <toolkit:ToggleSwitch IsChecked="{Binding UseGPS, Mode=TwoWay}" FontSize="24" Header="Access your Location (GPS)">
+                    <toolkit:ToggleSwitch.HeaderTemplate>
+                        <DataTemplate>
+                            <ContentControl FontSize="{StaticResource PhoneFontSizeMediumLarge}" Foreground="{StaticResource PhoneForegroundBrush}" Content="{Binding}"/>
+                        </DataTemplate>
+                    </toolkit:ToggleSwitch.HeaderTemplate>
+                </toolkit:ToggleSwitch>
+
+                <toolkit:ToggleSwitch IsChecked="{Binding RunsUnderLock, Mode=TwoWay}" FontSize="24" Header="Run Under Screen Lock">
+                    <toolkit:ToggleSwitch.HeaderTemplate>
+                        <DataTemplate>
+                            <ContentControl FontSize="{StaticResource PhoneFontSizeMediumLarge}" Foreground="{StaticResource PhoneForegroundBrush}" Content="{Binding}"/>
+                        </DataTemplate>
+                    </toolkit:ToggleSwitch.HeaderTemplate>
+                </toolkit:ToggleSwitch>
+
+
+                <toolkit:ToggleSwitch IsChecked="{Binding PreventLock, Mode=TwoWay}" FontSize="24" Header="Prevent Screen Lock">
+                    <toolkit:ToggleSwitch.HeaderTemplate>
+                        <DataTemplate>
+                            <ContentControl FontSize="{StaticResource PhoneFontSizeMediumLarge}" Foreground="{StaticResource PhoneForegroundBrush}" Content="{Binding}"/>
+                        </DataTemplate>
+                    </toolkit:ToggleSwitch.HeaderTemplate>
+                </toolkit:ToggleSwitch>
+
+                <TextBlock Margin="0,0,0,0" TextWrapping="Wrap" Text="These options may increase the battery cousume."></TextBlock>
+
+                <TextBlock Margin="15,20,0,0" FontSize="{StaticResource PhoneFontSizeMediumLarge}" TextWrapping="Wrap" Text="Choose speed measure:"></TextBlock>
+
+                <StackPanel Margin="45,0,0,0"  Orientation="Horizontal">
+                    <RadioButton GroupName="SpeedMeasure" IsChecked="{Binding MilesPerHour, Mode=TwoWay}" Content="mph"/>
+                    <RadioButton GroupName="SpeedMeasure" IsChecked="{Binding KmsPerHour, Mode=TwoWay}" Content="km/h"/>
+                </StackPanel>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+ 
+    
+
+</phone:PhoneApplicationPage>

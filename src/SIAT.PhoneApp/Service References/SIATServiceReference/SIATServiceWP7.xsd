@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://siat.diogofdsilva.com/Services/WP7/SIATServiceWP7.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SIAT.Operations" />
+  <xs:import schemaLocation="http://siat.diogofdsilva.com/Services/WP7/SIATServiceWP7.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SIAT.Service.Contract.DTO" />
+  <xs:import schemaLocation="http://siat.diogofdsilva.com/Services/WP7/SIATServiceWP7.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SIAT.OSM.Service.Contract.DTO" />
+  <xs:element name="SendPositionInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SIAT.Operations" minOccurs="0" name="listPosition" nillable="true" type="q1:ArrayOfPositionInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendPositionInformationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListAllOccurrences">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListAllOccurrencesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SIAT.Service.Contract.DTO" minOccurs="0" name="ListAllOccurrencesResult" nillable="true" type="q2:ArrayOfOccurrence" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListAllOccurrencesInWay">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="wayId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListAllOccurrencesInWayResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SIAT.Service.Contract.DTO" minOccurs="0" name="ListAllOccurrencesInWayResult" nillable="true" type="q3:ArrayOfOccurrence" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Alert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SIAT.Service.Contract.DTO" minOccurs="0" name="alert" nillable="true" type="q4:Alert" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlertResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CurrentWay">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lat" type="xs:double" />
+        <xs:element minOccurs="0" name="lon" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CurrentWayResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SIAT.OSM.Service.Contract.DTO" minOccurs="0" name="CurrentWayResult" nillable="true" type="q5:Way" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrUpdateOccurrencesSubscription">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="uri" nillable="true" type="xs:anyURI" />
+        <xs:element minOccurs="0" name="wayId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrUpdateOccurrencesSubscriptionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeOccurrencesSubscriptionUri">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="oldUri" nillable="true" type="xs:anyURI" />
+        <xs:element minOccurs="0" name="newUri" nillable="true" type="xs:anyURI" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeOccurrencesSubscriptionUriResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteOccurrencesSubscription">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="uri" nillable="true" type="xs:anyURI" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteOccurrencesSubscriptionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

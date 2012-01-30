@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SIAT.IISServices.SIATUserService" CodeBehind="SIATUserService.svc.cs" %>

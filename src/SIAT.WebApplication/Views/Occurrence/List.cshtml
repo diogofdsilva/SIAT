@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SIAT.WebApplication.Models.Occurrence>
+
+@{
+    ViewBag.Title = "Ocorrências - Lista";
+}
+
+<h2>Pesquisa as ocorrências:</h2>
+
+@foreach (var item in Model) {
+    <div class="post" >
+        <h2 class="title">@Html.ActionLink(item.WayName, "Details", new {  id=item.Id }) </h2>
+        <p class="meta">
+            <span class="date"> 
+                @{
+                    if (item.Description == null)
+                    {
+                        item.Description = "Indisponível";
+                    }
+                }
+			    Descrição: 
+                @Html.DisplayFor(modelItem => item.Description)
+                <br />
+
+                @Html.DisplayFor(modelItem => item.Latitude) :: @Html.DisplayFor(modelItem => item.Longitude)
+                
+                
+            </span>
+            <span class="posted">
+                @{
+                    var i = Int32.Parse(item.Intensity) ;
+                    
+                    if(i < 5)
+                    {
+                        ViewBag.LightPath = Url.Content("~/Content/images/traffic_lights_red.png");
+                    }
+                    else if (i < 10)
+                    {
+                        ViewBag.LightPath = Url.Content("~/Content/images/traffic_lights_yellow.png");
+                    }else{
+                        ViewBag.LightPath = Url.Content("~/Content/images/traffic_lights_green.png");
+                    }
+                }
+                <img alt="Light" src=@ViewBag.LightPath />
+            
+            </span>
+        </p>
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Criar nova Ocorrência", "Create")
+</p>

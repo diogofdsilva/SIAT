@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SIATServiceWP7" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://siat.diogofdsilva.com/Services/WP7/SIATServiceWP7.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://siat.diogofdsilva.com/Services/WP7/SIATServiceWP7.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://siat.diogofdsilva.com/Services/WP7/SIATServiceWP7.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SIAT.Operations" />
+      <xsd:import schemaLocation="http://siat.diogofdsilva.com/Services/WP7/SIATServiceWP7.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SIAT.Service.Contract.DTO" />
+      <xsd:import schemaLocation="http://siat.diogofdsilva.com/Services/WP7/SIATServiceWP7.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SIAT.OSM.Service.Contract.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISIATServiceWP7_SendPositionInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendPositionInformation" />
+  </wsdl:message>
+  <wsdl:message name="ISIATServiceWP7_SendPositionInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendPositionInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISIATServiceWP7_ListAllOccurrences_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListAllOccurrences" />
+  </wsdl:message>
+  <wsdl:message name="ISIATServiceWP7_ListAllOccurrences_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListAllOccurrencesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISIATServiceWP7_ListAllOccurrencesInWay_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListAllOccurrencesInWay" />
+  </wsdl:message>
+  <wsdl:message name="ISIATServiceWP7_ListAllOccurrencesInWay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListAllOccurrencesInWayResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISIATServiceWP7_Alert_InputMessage">
+    <wsdl:part name="parameters" element="tns:Alert" />
+  </wsdl:message>
+  <wsdl:message name="ISIATServiceWP7_Alert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlertResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISIATServiceWP7_CurrentWay_InputMessage">
+    <wsdl:part name="parameters" element="tns:CurrentWay" />
+  </wsdl:message>
+  <wsdl:message name="ISIATServiceWP7_CurrentWay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CurrentWayResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISIATServiceWP7_CreateOrUpdateOccurrencesSubscription_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrUpdateOccurrencesSubscription" />
+  </wsdl:message>
+  <wsdl:message name="ISIATServiceWP7_CreateOrUpdateOccurrencesSubscription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrUpdateOccurrencesSubscriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISIATServiceWP7_ChangeOccurrencesSubscriptionUri_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeOccurrencesSubscriptionUri" />
+  </wsdl:message>
+  <wsdl:message name="ISIATServiceWP7_ChangeOccurrencesSubscriptionUri_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeOccurrencesSubscriptionUriResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISIATServiceWP7_DeleteOccurrencesSubscription_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOccurrencesSubscription" />
+  </wsdl:message>
+  <wsdl:message name="ISIATServiceWP7_DeleteOccurrencesSubscription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOccurrencesSubscriptionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISIATServiceWP7">
+    <wsdl:operation name="SendPositionInformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISIATServices/SendPositionInformation" message="tns:ISIATServiceWP7_SendPositionInformation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISIATServices/SendPositionInformationResponse" message="tns:ISIATServiceWP7_SendPositionInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListAllOccurrences">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISIATServices/ListAllOccurrences" message="tns:ISIATServiceWP7_ListAllOccurrences_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISIATServices/ListAllOccurrencesResponse" message="tns:ISIATServiceWP7_ListAllOccurrences_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListAllOccurrencesInWay">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISIATServices/ListAllOccurrencesInWay" message="tns:ISIATServiceWP7_ListAllOccurrencesInWay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISIATServices/ListAllOccurrencesInWayResponse" message="tns:ISIATServiceWP7_ListAllOccurrencesInWay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Alert">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISIATServices/Alert" message="tns:ISIATServiceWP7_Alert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISIATServices/AlertResponse" message="tns:ISIATServiceWP7_Alert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CurrentWay">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISIATServices/CurrentWay" message="tns:ISIATServiceWP7_CurrentWay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISIATServices/CurrentWayResponse" message="tns:ISIATServiceWP7_CurrentWay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrUpdateOccurrencesSubscription">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISIATServiceWP7/CreateOrUpdateOccurrencesSubscription" message="tns:ISIATServiceWP7_CreateOrUpdateOccurrencesSubscription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISIATServiceWP7/CreateOrUpdateOccurrencesSubscriptionResponse" message="tns:ISIATServiceWP7_CreateOrUpdateOccurrencesSubscription_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOccurrencesSubscriptionUri">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISIATServiceWP7/ChangeOccurrencesSubscriptionUri" message="tns:ISIATServiceWP7_ChangeOccurrencesSubscriptionUri_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISIATServiceWP7/ChangeOccurrencesSubscriptionUriResponse" message="tns:ISIATServiceWP7_ChangeOccurrencesSubscriptionUri_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOccurrencesSubscription">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISIATServiceWP7/DeleteOccurrencesSubscription" message="tns:ISIATServiceWP7_DeleteOccurrencesSubscription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISIATServiceWP7/DeleteOccurrencesSubscriptionResponse" message="tns:ISIATServiceWP7_DeleteOccurrencesSubscription_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISIATServiceWP7" type="tns:ISIATServiceWP7">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendPositionInformation">
+      <soap:operation soapAction="http://tempuri.org/ISIATServices/SendPositionInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListAllOccurrences">
+      <soap:operation soapAction="http://tempuri.org/ISIATServices/ListAllOccurrences" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListAllOccurrencesInWay">
+      <soap:operation soapAction="http://tempuri.org/ISIATServices/ListAllOccurrencesInWay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Alert">
+      <soap:operation soapAction="http://tempuri.org/ISIATServices/Alert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CurrentWay">
+      <soap:operation soapAction="http://tempuri.org/ISIATServices/CurrentWay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrUpdateOccurrencesSubscription">
+      <soap:operation soapAction="http://tempuri.org/ISIATServiceWP7/CreateOrUpdateOccurrencesSubscription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOccurrencesSubscriptionUri">
+      <soap:operation soapAction="http://tempuri.org/ISIATServiceWP7/ChangeOccurrencesSubscriptionUri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOccurrencesSubscription">
+      <soap:operation soapAction="http://tempuri.org/ISIATServiceWP7/DeleteOccurrencesSubscription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SIATServiceWP7">
+    <wsdl:port name="BasicHttpBinding_ISIATServiceWP7" binding="tns:BasicHttpBinding_ISIATServiceWP7">
+      <soap:address location="http://siat.diogofdsilva.com/Services/WP7/SIATServiceWP7.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

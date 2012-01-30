@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="D:\siat\Services\SIAT" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Web.config" publishTime="10/12/2011 19:26:12" />
+    <file relUrl="bin/SIAT.UserInfo.DAL.pdb" publishTime="10/12/2011 19:25:59" />
+    <file relUrl="bin/SIAT.UserInfo.DAL.dll" publishTime="10/12/2011 19:25:59" />
+    <file relUrl="bin/SIAT.Service.Contract.pdb" publishTime="10/12/2011 19:25:57" />
+    <file relUrl="bin/SIAT.IISServices.dll" publishTime="10/12/2011 19:26:00" />
+    <file relUrl="SIATService.svc" publishTime="10/07/2011 16:54:36" />
+    <file relUrl="bin/SIAT.DAL.pdb" publishTime="10/12/2011 19:25:58" />
+    <file relUrl="bin/SIAT.DAL.dll" publishTime="10/12/2011 19:25:58" />
+    <file relUrl="bin/SIAT.IISServices.pdb" publishTime="10/12/2011 19:26:00" />
+    <file relUrl="bin/SIAT.DAL.Shared.dll" publishTime="10/12/2011 19:25:56" />
+    <file relUrl="bin/SIAT.Service.Contract.dll" publishTime="10/12/2011 19:25:57" />
+    <file relUrl="SIATUserService.svc" publishTime="10/10/2011 18:17:30" />
+    <file relUrl="bin/SIAT.UserInfo.Contract.pdb" publishTime="10/12/2011 19:25:57" />
+    <file relUrl="bin/SIAT.UserInfo.Contract.dll" publishTime="10/12/2011 19:25:57" />
+    <file relUrl="bin/SIAT.DAL.Shared.pdb" publishTime="10/12/2011 19:25:56" />
+  </publishProfile>
+</publishData>

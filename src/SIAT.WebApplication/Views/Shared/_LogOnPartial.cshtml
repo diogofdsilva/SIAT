@@ -1,0 +1,12 @@
+﻿@using Facebook.Web;
+@using Facebook.Web.Mvc;
+
+@if (Context.User.Identity.IsAuthenticated)
+{
+    <text>Bem-vindo <strong>@User.Identity.Name</strong>!
+    [ @Html.ActionLink("Log Off", "LogOff", "Account") ]</text>
+}
+else {
+    <text>Bem-vindo!
+    [ @Html.ActionLink("Log On", "LogOn", "Account") ]</text>
+}

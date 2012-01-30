@@ -1,0 +1,68 @@
+﻿@model SIAT.UserInfo.Contract.DTO.User
+
+@{
+    ViewBag.Title = "Perfil";
+}
+<script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+<script type="text/javascript">
+    
+    function showMap(position) {
+        // Show a map centered at (position.coords.latitude, position.coords.longitude).
+        map.setView({ zoom: 15, center: new Microsoft.Maps.Location(position.coords.latitude, position.coords.longitude) })
+    }
+
+    // One-shot position request.
+    navigator.geolocation.getCurrentPosition(showMap);
+    
+    var map = null;
+    var click;
+    var pushpin;
+
+    function getMap() {
+        map = new Microsoft.Maps.Map(document.getElementById('map'), { credentials: 'ApZz5SrkzHJeg5bXlWBoQ23QhWOJr-CTGOiDefThvegeKcl1EzTFgUPI_n1HZTJL', enableClickableLogo: false });
+        
+    }
+
+    
+</script>
+
+
+
+<div style="float: left; position: relative;">
+
+    <h3>Email</h3>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+    
+    <h3>Nome</h3>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <h3>Apelido</h3>
+    <div>
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+    
+    <h3>Facebook</h3>
+    <div>
+        @if (Model.FacebookId == null)
+        {
+            <text>Não integrado.</text>
+        }
+        else {
+            <text>Integrado.</text>
+        }
+    </div>
+</div>
+
+<div id="mapviewer" style="float: right; position: relative;">
+    <h3>Localização actual</h3>
+    <div id='map' style="position: relative; width: 300px; height: 300px;">
+    </div>
+    <script type="text/javascript"> getMap();</script>
+</div>
+<div style="float: left; position: relative; clear:both">
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) 
+</div>

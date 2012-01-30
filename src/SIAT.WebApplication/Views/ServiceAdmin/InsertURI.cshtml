@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Insert URI";
+}
+
+<h2>Insert URI</h2>
+
+@using (Html.BeginForm())
+{
+    
+    @Html.DropDownList("AllServices", new SelectList(new string[] { "SIAT", "OSM", "User" }))
+
+    @Html.TextBox("uri", null, new { size = "80" })
+
+    <p>
+        <input type="submit" value="Inserir" />
+    </p>
+}

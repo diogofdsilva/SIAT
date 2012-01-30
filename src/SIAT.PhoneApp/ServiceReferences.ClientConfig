@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_ISIATServiceWP7" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://siat.diogofdsilva.com/Services/WP7/SIATServiceWP7.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ISIATServiceWP7"
+                contract="SIATServiceReference.ISIATServiceWP7" name="BasicHttpBinding_ISIATServiceWP7" />
+        </client>
+    </system.serviceModel>
+</configuration>

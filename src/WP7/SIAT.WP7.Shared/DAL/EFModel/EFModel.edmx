@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="WP7_Subscription" EntityType="Model.Store.WP7_Subscription" store:Type="Tables" store:Schema="dbo" store:Name="WP7.Subscription">
+            <DefiningQuery>SELECT 
+      [WP7_Subscription].[uri] AS [uri], 
+      [WP7_Subscription].[wayId] AS [wayId]
+      FROM [dbo].[WP7.Subscription] AS [WP7_Subscription]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'OSM-SIAT-P.dbo.WP7.Subscription' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="WP7_Subscription">
+          <Key>
+            <PropertyRef Name="uri" />
+            <PropertyRef Name="wayId" />
+          </Key>
+          <Property Name="uri" Type="nvarchar" Nullable="false" MaxLength="250" />
+          <Property Name="wayId" Type="bigint" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="WP7Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Subscription" EntityType="Model.Subscription" />
+        </EntityContainer>
+        <EntityType Name="Subscription">
+          <Key>
+            <PropertyRef Name="Uri" />
+            <PropertyRef Name="WayId" />
+          </Key>
+          <Property Name="Uri" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="WayId" Type="Int64" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="WP7Entities">
+          <EntitySetMapping Name="Subscription"><EntityTypeMapping TypeName="Model.Subscription"><MappingFragment StoreEntitySet="WP7_Subscription">
+            <ScalarProperty Name="Uri" ColumnName="uri" />
+            <ScalarProperty Name="WayId" ColumnName="wayId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="EFModel">
+        <EntityTypeShape EntityType="Model.Subscription" Width="1.5" PointX="0.75" PointY="0.75" Height="1.4033821614583331" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

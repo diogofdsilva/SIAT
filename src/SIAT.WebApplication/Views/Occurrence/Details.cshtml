@@ -1,0 +1,48 @@
+﻿@model SIAT.WebApplication.Models.Occurrence
+
+@{
+    ViewBag.Title = "Detalhes " + Model.WayName;
+}
+<script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+<script type="text/javascript">
+    var map = null;
+
+    function getMap() {
+        map = new Microsoft.Maps.Map(document.getElementById('map'), { credentials: 'ApZz5SrkzHJeg5bXlWBoQ23QhWOJr-CTGOiDefThvegeKcl1EzTFgUPI_n1HZTJL', enableClickableLogo: false });
+        var location = new Microsoft.Maps.Location( @Model.Latitude , @Model.Longitude );
+        map.setView({ zoom: 15, center: location });
+        var pushpin= new Microsoft.Maps.Pushpin(map.getCenter(), null); 
+        map.entities.push(pushpin);
+        pushpin.setLocation(location); 
+    }
+</script>
+
+<h2>@Html.DisplayFor(model => model.WayName)</h2>
+
+<div>
+    <div id="mapviewer" style="float: right; position: relative;">
+        <div id='map' style="position: relative; width: 600px; height: 350px;">
+        </div>
+        <script type="text/javascript"> getMap();</script>
+    </div>
+    <div style="margin:25px" >
+        <h4 class="display-label">Longitude</h4>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Longitude)
+        </div>
+
+        <h4 class="display-label">Latitude</h4>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Latitude)
+        </div>
+
+        <h4 class="display-label">Descrição:</h4>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Description)
+        </div>
+    </div>
+    
+</div>
+<p style="clear:both;">
+    @Html.ActionLink("Voltar para a lista", "List")
+</p>

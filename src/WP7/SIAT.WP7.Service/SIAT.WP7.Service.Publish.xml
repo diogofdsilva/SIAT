@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="D:\siat\Services\WP7" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Web.config" publishTime="11/01/2011 16:49:23" />
+    <file relUrl="bin/SIAT.Operations.dll" publishTime="11/01/2011 16:25:11" />
+    <file relUrl="bin/SIAT.WP7.Service.pdb" publishTime="11/01/2011 16:25:14" />
+    <file relUrl="bin/SIAT.Service.Contract.pdb" publishTime="11/01/2011 15:55:20" />
+    <file relUrl="bin/SIAT.OSM.Service.Contract.pdb" publishTime="11/01/2011 15:55:20" />
+    <file relUrl="bin/SIAT.WP7.Service.dll" publishTime="11/01/2011 16:25:14" />
+    <file relUrl="bin/SIAT.Operations.pdb" publishTime="11/01/2011 16:25:11" />
+    <file relUrl="bin/SIAT.DAL.Shared.dll" publishTime="11/01/2011 15:34:43" />
+    <file relUrl="bin/SIAT.Service.Contract.dll" publishTime="11/01/2011 15:55:20" />
+    <file relUrl="bin/SIAT.OSM.Service.Contract.dll" publishTime="11/01/2011 15:55:21" />
+    <file relUrl="bin/SIAT.UserInfo.Contract.pdb" publishTime="11/01/2011 15:55:19" />
+    <file relUrl="bin/SIAT.UserInfo.Contract.dll" publishTime="11/01/2011 15:55:19" />
+    <file relUrl="bin/SIAT.WP7.Shared.dll" publishTime="11/01/2011 15:34:54" />
+    <file relUrl="bin/SIAT.Services.dll" publishTime="11/01/2011 16:25:13" />
+    <file relUrl="SIATServiceWP7.svc" publishTime="07/21/2011 17:46:24" />
+    <file relUrl="bin/SIAT.WP7.Shared.pdb" publishTime="11/01/2011 15:34:54" />
+    <file relUrl="bin/SIAT.Services.pdb" publishTime="11/01/2011 16:25:12" />
+    <file relUrl="bin/SIAT.DAL.Shared.pdb" publishTime="11/01/2011 15:34:43" />
+  </publishProfile>
+</publishData>

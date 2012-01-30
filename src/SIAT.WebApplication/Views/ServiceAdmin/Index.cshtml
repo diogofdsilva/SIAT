@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Estado";
+}
+
+<h2>Estado</h2>
+
+@Html.ValidationSummary(true, "Falhou. Tente novamente.")
+
+<h4>OSM</h4>
+<p>
+    @ViewBag.OSM |  @Html.ActionLink("Actualizar", "ServerRefresh", "ServiceAdmin", new { id = 0 }, new { }) |  @Html.ActionLink("Acordar", "ServerWakeUp", "ServiceAdmin", new { id = 0 }, new { })
+</p>
+<h4>User</h4>
+<p>
+    @ViewBag.User |  @Html.ActionLink("Actualizar", "ServerRefresh", "ServiceAdmin", new { id = 2 }, new { }) |  @Html.ActionLink("Acordar", "ServerWakeUp", "ServiceAdmin", new { id = 2 }, new { })
+</p>
+<h4>SIAT</h4>
+<p>
+    @ViewBag.SIAT |  @Html.ActionLink("Actualizar", "ServerRefresh", "ServiceAdmin", new { id = 1 }, new { }) |  @Html.ActionLink("Acordar", "ServerWakeUp", "ServiceAdmin", new { id = 1 }, new { }) 
+</p>
+
+@Html.ActionLink("Inserir URI", "InsertURI", "ServiceAdmin") | @Html.ActionLink("Actualizar todos", "ServerRefresh", "ServiceAdmin", new { id = 3 }, new { }) |  @Html.ActionLink("Acordar todos", "ServerWakeUp", "ServiceAdmin", new { id = 3 }, new { }) 

@@ -1,0 +1,54 @@
+﻿@model SIAT.UserInfo.Contract.DTO.User
+
+@{
+    ViewBag.Title = "SIAT - Novo utilizador";
+}
+
+<h2>Novo utilizador</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <div style="margin:50px">
+
+        <h3>
+            @Html.LabelFor(model => model.Email)
+        </h3>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <h3 class="editor-label">
+            @Html.LabelFor(model => model.Pass)
+        </h3>
+        <div class="editor-field">
+            @Html.PasswordFor(model => model.Pass)
+            @Html.ValidationMessageFor(model => model.Pass)
+        </div>
+        
+
+        <h3 class="editor-label">
+            Nome
+        </h3>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <h3 class="editor-label">
+            Apelido
+        </h3>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <p>
+            <input style="width:100px;height:50px; margin:30px; font-size:16pt" type="submit" value="Criar" />
+        </p>
+    </div>
+}
+
